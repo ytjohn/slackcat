@@ -4,6 +4,8 @@ slackcat is a command line tool that posts messages to [Slack].
 
     $ echo "hello" | slackcat
 
+[![Build Status](https://travis-ci.org/ytjohn/slackcat.svg)](https://travis-ci.org/ytjohn/slackcat)
+
 ## Installation
 
 If you have a working Go installation run `go get github.com/skattyadz/slackcat`.
