@@ -1,10 +1,12 @@
 ## simple makefile to log workflow
 .PHONY: all test clean build install
-
+GOPATH := $(CURDIR)/_vendor:$(GOPATH)
 GOFLAGS ?= $(GOFLAGS:)
 
-all: build
+all: get-deps build
 
+get-deps:
+	@go get -d
 
 build:
 	@go build $(GOFLAGS) ./...
