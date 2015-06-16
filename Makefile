@@ -2,6 +2,7 @@
 .PHONY: all test clean build install
 GOPATH := $(CURDIR)/_vendor:$(GOPATH)
 GOFLAGS ?= $(GOFLAGS:)
+TAG := $(TRAVIS_TAG)
 
 all: get-deps build
 
@@ -10,6 +11,9 @@ get-deps:
 
 build:
 	@go build $(GOFLAGS) ./...
+
+package:
+	zip slackcat.zip slackcat
 
 install:
 	@go get $(GOFLAGS) ./...

@@ -1,3 +1,13 @@
 language: go
 install:
-    - make get-deps
+- make get-deps
+- make build
+- make package
+deploy:
+  provider: releases
+  api_key:
+    secure: n5C6j4RjK/s/+33tu8eSoUGib3mKjzAKG8ZyUu2YU4mTYrmr3suiGn6QLbP4iHxRyN/DTiALzJBRqufjQJsAc5IaveYzQm8MRgpXtlrAbMfrseAK/vkhV97Z3frnxOY+q34hq4yeF7P6rORxSXYRSL8WnN9rIA1Y7awooSU6Khgi4a9XpsfySghaSNbmjXySiIvJG6vvyrzgkvI3NNe/gpOhiahqba0hp2GWOLrjY3J/ZRKSbL/4VhsAP6ysrRTY5uA7ohr5i4UxoFXs0byA6R8KUV2EHwD9eL7rcZ2G0pSCrC8eS1dgYoVxk1e/hN2SCDJyUf4x2nXEjhlnvjZ0oEm+2zS+QwJKdK7rA5dW1YA2Ah6mTkIu2oYZRF6jyNoce4O3gAxLi0BOEj9K0If0MM8qOzSH6fQ3CckUZuG9qxeqCliU/G14l/O4CpHryv4TPb7/Q0ty27kldQBX53QwvvqpIUhF1WzDonlmNTAya3vCCnoQtFOzXYVZ6qnwcS87H6UNqb/UDC1Ok+OwLBWtkewXS8BsA+v2Jk3uQb61o0zxVTTuMJuBwYoWxjs/zM91lae7+gkA+QH/zE8l6KM82VLszQ99+SIk3W+gkUQW3wRwRsCXEN8S4CaVAT67m/iIKpDTgZk8QMFu7D+z+XKNvAfepDnjuXTPwgJ3vJQfunU=
+  file: slackcat.zip
+  on:
+    repo: ytjohn/slackcat
+    branch: travis1
