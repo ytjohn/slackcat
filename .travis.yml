@@ -10,4 +10,4 @@ deploy:
   file: slackcat.zip
   on:
     repo: ytjohn/slackcat
-    branch: travis1
+    tags: true
