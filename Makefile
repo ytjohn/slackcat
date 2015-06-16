@@ -13,7 +13,7 @@ build:
 	@go build $(GOFLAGS) ./...
 
 package:
-	zip slackcat.zip slackcat
+	zip slackcat-$(TRAVIS_TAG).zip slackcat
 
 install:
 	@go get $(GOFLAGS) ./...
