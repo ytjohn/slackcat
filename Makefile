@@ -10,11 +10,16 @@ get-deps:
 	@go get -d
 
 build:
-	@go build $(GOFLAGS) ./...
+	@go build $(GOFLAGS) slackcat.go
 
 package:
 	zip slackcat-$(TRAVIS_TAG).zip slackcat
-
+	fpm -s dir -t deb --url http://github.com/ytjohn/slackcat --vendor ytjohn --license MIT \
+	  --maintainer 'John Hogenmiller <john@yourtech.us>' --description="Post messages to Slack from the command line" \
+	  -n slackcat -v "$TRAVIS_TAG" --prefix /usr/local/bin slackcat
+	fpm -s dir -t rpm --url http://github.com/ytjohn/slackcat --vendor ytjohn --license MIT \
+	  --maintainer 'John Hogenmiller <john@yourtech.us>' --description="Post messages to Slack from the command line" \
+	  -n slackcat -v "$TRAVIS_TAG" --prefix /usr/local/bin slackcat
 install:
 	@go get $(GOFLAGS) ./...
 
